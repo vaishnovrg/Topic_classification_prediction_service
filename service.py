@@ -32,7 +32,7 @@ def index():
 def classify_topic(data: Topic):
     received = data.dict()
     text = received['statement']
-    text = re.sub('[^A-Za-z]', ' ', text.lower())
+    text = re.sub('[^A-Za-z0-9]', ' ', text.lower())
     print('text - ',text)
     tokenized_text = word_tokenize(text)
     clean_text = [" ".join(lemmatizer.lemmatize(word) for word in tokenized_text
